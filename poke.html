@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="pokedex-bd">
+        <button onclick="get_all()">aperta</button>
+    </div>
+</body>
+<script>
+    function get_all (){
+        fetch('https://pokeapi.co/api/v2/pokemon?limit=255')
+        .then(response => response.json())
+        .then(allpokemon => console.log(allpokemon))
+        get_poke()
+    }
+    function get_poke (){
+
+        let pokedex = document.getElementById("pokedex-bd")
+        for (let id=0; id<255; id++){
+            fetch('https://pokeapi.co/api/v2/pokemon/' + id)
+            .then(response => response.json())
+            .then(function(get_poke){
+            console.log(get_poke)
+            console.log(get_poke.name)
+            pokedex.innerHTML += 
+            `<div>
+                <h1>${get_poke.name}</h1>
+                <h2>#${get_poke.id}</h2>
+                <img src="${get_poke.sprites.front_default}"\> 
+            </div>`
+         })}
+
+    }
+    
+</script>
+</html>
