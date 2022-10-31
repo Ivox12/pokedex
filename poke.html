@@ -31,7 +31,8 @@
             `<div>
                 <h1>${get_poke.name}</h1>
                 <h2>#${get_poke.id}</h2>
-                <img src="${get_poke.sprites.front_default}"\> 
+                <img src="${get_poke.sprites.versions["generation-v"]["black-white"].animated.front_default}"\> 
+                <p class="tipo">${get_poke.types.map(item => " " + item.type.name)}</p> 
             </div>`
          })}
 
