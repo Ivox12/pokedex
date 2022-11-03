@@ -50,18 +50,18 @@
 
         let tagsRow = []
 
-        let poke_type = get_poke.types.map(item => item.type.name)
+        let poke_type = get_poke.types.map(item  =>" " + item.type.name)
 
         poke_type.forEach(typeElement => {
             
-            
-            console.log(poke_type)
+            console.log(typeElement)
             let type_html =
-           `<div class="${poke_type}">
-                <p>${poke_type}</p>
+           `<div class="${typeElement}">
+                <p>${typeElement}</p>
             </div>`
         
             tagsRow.push(type_html);
+    
         })
         
         return tagsRow.join(['']);
