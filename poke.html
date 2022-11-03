@@ -15,14 +15,14 @@
 </body>
 <script>
     function get_all (){
-        fetch('https://pokeapi.co/api/v2/pokemon?limit=251')
+        fetch('https://pokeapi.co/api/v2/pokemon?limit=150')
         .then(response => response.json())
         .then(allpokemon => console.log(allpokemon))
         get_poke()
     }
     function get_poke (){
         let pokedex = document.getElementById("pokedex_bd")
-        for (let id=1; id<251; id++){
+        for (let id=1; id<150; id++){
             fetch('https://pokeapi.co/api/v2/pokemon/' + id)
             .then(response => response.json())
             .then(function(get_poke){
