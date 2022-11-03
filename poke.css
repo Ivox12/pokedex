@@ -5,8 +5,6 @@
 }
 
 .poke_card {
-    display: flex;
-    flex-wrap: wrap;
     text-align: center;
     background-color: blue;
     width: 30%;
@@ -23,7 +21,6 @@
 
 .poke_id{
     margin-right: 2%;
-    margin-top: %;
 }
 
 .poke_photo {
@@ -36,13 +33,5 @@
     z-index: 1;
     margin:auto 0;
     position: relative;
-}
-
-.poke_shadow {
-    width: 140px;
-    height: 72px;
-    margin: auto 0;
-    filter: blur(5px) brightness(0%) opacity(60%);
-    vertical-align: baseline;
-    transform: skew(-50deg) translate(-55px, -70px);
+    filter: drop-shadow(3px 10px 3px);
 }

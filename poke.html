@@ -21,27 +21,51 @@
         get_poke()
     }
     function get_poke (){
-
         let pokedex = document.getElementById("pokedex_bd")
-        for (let id=0; id<251; id++){
+        for (let id=1; id<251; id++){
             fetch('https://pokeapi.co/api/v2/pokemon/' + id)
             .then(response => response.json())
             .then(function(get_poke){
-            console.log(get_poke)
-            console.log(get_poke.name)
-            pokedex.innerHTML += 
-            `<div class="poke_card">
-                <div class="poke_top">
-                    <h1 class="poke_id">#${get_poke.id}</h1>
-                    <h1 class="poke_name">${get_poke.name}</h1>
-                </div>
-                <div class="poke_photo"> 
-                    <img class="poke_view" src="${get_poke.sprites.other["official-artwork"].front_default}"\> 
-                    <img class="poke_shadow" src="${get_poke.sprites.other["official-artwork"].front_default}"\>
-                </div>
-                <p class="poke_type">${get_poke.types.map(item => " " + item.type.name)}</p> 
+
+                console.log(get_poke)
+                console.log(get_poke.name)
+
+                pokedex.innerHTML += 
+                `<div class="poke_card">
+                    <div class="poke_top">
+                        <h1 class="poke_id">#${get_poke.id}</h1>
+                        <h1 class="poke_name">${get_poke.name}</h1>
+                    </div>
+                    <div class="poke_photo"> 
+                        <img class="poke_view" src="${get_poke.sprites.other["official-artwork"].front_default}"\> 
+                    </div>
+                    <div class="poke_tipo">
+                        ${get_poketype(get_poke)}
+                    </div> 
+                </div>`
+            })
+        }
+    
+    function get_poketype (get_poke) {
+
+        let tagsRow = []
+
+        let poke_type = get_poke.types.map(item => item.type.name)
+
+        poke_type.forEach(typeElement => {
+            
+            
+            console.log(poke_type)
+            let type_html =
+           `<div class="${poke_type}">
+                <p>${poke_type}</p>
             </div>`
-         })}
+        
+            tagsRow.push(type_html);
+        })
+        
+        return tagsRow.join(['']);
+    }
 
     }
     
