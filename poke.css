@@ -19,6 +19,12 @@
     --fairy:#D685AD;
 }
 
+#poketao {
+    text-align: center;
+    margin-top: 10%;
+
+}
+
 #pokedex_bd {
     display: flex;
     flex-wrap: wrap;
@@ -44,20 +50,40 @@
     margin-right: 2%;
 }
 
-.poke_photo {
-    display: absolute;
-}
-
 .poke_view {
     width: 120px;
     height: auto; 
     z-index: 1;
-    margin:auto 0;
+    margin-bottom:25px;
     position: relative;
     filter: drop-shadow(3px 10px 3px);
 }
 
-/*types*/
+/*type config*/
+
+.poke_tipo {
+    display: flex;
+    justify-content: center;
+}
+
+.poke_tipo > div > p {
+    border: 2px solid white;
+    border-radius: 5px;
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    margin: auto;
+    width: 100px;
+    padding-bottom: 3px;
+}
+
+.poke_tipo > div {
+    border-radius: 4px;
+    margin: 10px 10px 10px 10px;
+}
+
+/*types color cell*/
 
 .normal {
     background-color: var(--normal);
@@ -129,4 +155,5 @@
 
 .fairy {
     background-color: var(--fairy);
+
 }

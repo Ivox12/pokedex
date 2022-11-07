@@ -8,13 +8,16 @@
     <title>pokedex</title>
 </head>
 <body>
-    <button onclick="get_all()">aperta</button>
+    <div id="poketao">
+        <img onclick="get_all()" src="C:\Users\fullg\Desktop\meu\pokedex incompleto\pokedex minha\pokedex\img\pokeball.png"></img>
+    </div>
     <div id="pokedex_bd">
         
     </div>
 </body>
 <script>
     function get_all (){
+
         fetch('https://pokeapi.co/api/v2/pokemon?limit=150')
         .then(response => response.json())
         .then(allpokemon => console.log(allpokemon))
