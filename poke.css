@@ -1,3 +1,24 @@
+:root{
+    --normal:#A8A77A;
+    --fighting:#C22E28;
+    --flying:#A98FF3;
+    --poison:#A33EA1;
+    --ground:#E2BF65;
+    --rock:#B6A136;
+    --bug:#A6B91A;
+    --ghost:#735797;
+    --steel:#B7B7CE;
+    --fire:#EE8130;
+    --water:#6390F0;
+    --grass:#7AC74C;
+    --electric:#F7D02C;
+    --psychic:#F95587;
+    --ice:#96D9D6;
+    --dragon:#6F35FC;
+    --dark:#705746;
+    --fairy:#D685AD;
+}
+
 #pokedex_bd {
     display: flex;
     flex-wrap: wrap;
@@ -34,4 +55,78 @@
     margin:auto 0;
     position: relative;
     filter: drop-shadow(3px 10px 3px);
+}
+
+/*types*/
+
+.normal {
+    background-color: var(--normal);
+}
+
+.fighting {
+    background-color: var(--fighting);
+}
+
+.flying {
+    background-color: var(--flying);
+}
+
+.poison {
+    background-color: var(--poison);
+}
+
+.ground {
+    background-color: var(--ground);
+}
+
+.rock {
+    background-color: var(--rock);
+}
+
+.bug {
+    background-color: var(--bug);
+}
+
+.ghost {
+    background-color: var(--ghost);
+}
+
+.steel {
+    background-color: var(--steel);
+}
+
+.fire {
+    background-color: var(--fire);
+}
+
+.water {
+    background-color: var(--water);
+}
+
+.grass {
+    background-color: var(--grass);
+}
+
+.electric {
+    background-color: var(--electric);
+}
+
+.psychic {
+    background-color: var(--psychic);
+}
+
+.ice {
+    background-color: var(--ice);
+}
+
+.dragon {
+    background-color: var(--dragon);
+}
+
+.dark {
+    background-color: var(--dark);
+}
+
+.fairy {
+    background-color: var(--fairy);
 }
