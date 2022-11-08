@@ -22,7 +22,21 @@
 #poketao {
     text-align: center;
     margin-top: 10%;
+}
 
+#poketao > img {
+    width: 30%;
+}
+
+#poketao > img:active {
+    animation: rodada 1s linear;
+    transform: translateY(3px);
+    filter: grayscale(50%);
+}
+
+@keyframes rodada {
+    0% {rotate: 0deg;}
+    100%{rotate: 360deg;}
 }
 
 #pokedex_bd {

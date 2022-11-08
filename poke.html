@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="poketao">
-        <img onclick="get_all()" src="C:\Users\fullg\Desktop\meu\pokedex incompleto\pokedex minha\pokedex\img\pokeball.png"></img>
+        <img onclick="get_all()" src="img/pokeball.png"></img>
     </div>
     <div id="pokedex_bd">
         
@@ -17,6 +17,10 @@
 </body>
 <script>
     function get_all (){
+
+        let poketao = document.getElementById("poketao")
+
+        poketao.style.display = "none";
 
         fetch('https://pokeapi.co/api/v2/pokemon?limit=150')
         .then(response => response.json())
