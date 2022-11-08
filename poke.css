@@ -19,6 +19,10 @@
     --fairy:#D685AD;
 }
 
+body {
+    background-color: #c4aefd9d;
+}
+
 #poketao {
     text-align: center;
     margin-top: 10%;
@@ -26,12 +30,14 @@
 
 #poketao > img {
     width: 30%;
+    filter: drop-shadow(3px 3px 10px);
 }
 
 #poketao > img:active {
     animation: rodada 1s linear;
     transform: translateY(3px);
     filter: grayscale(50%);
+    
 }
 
 @keyframes rodada {
@@ -47,17 +53,22 @@
 
 .poke_card {
     text-align: center;
-    background-color: blue;
+    background: linear-gradient(55deg, #f03b3b9f, #7b45f8ce);
     width: 30%;
     border: solid black 5px;
     border-radius: 20px;
     margin-bottom: 5%;
+}
 
+.poke_card:hover {
+    transform: translateY(3px);
 }
 
 .poke_top {
     display:flex;
     justify-content: center;
+    color: whitesmoke;
+    text-shadow:2px 2px 2px black;
 }
 
 .poke_id{
@@ -95,6 +106,7 @@
 .poke_tipo > div {
     border-radius: 4px;
     margin: 10px 10px 10px 10px;
+    filter: drop-shadow(1px 2px 1px);
 }
 
 /*types color cell*/
