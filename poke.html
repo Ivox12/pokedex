@@ -12,7 +12,8 @@
         <img onclick="get_all()" src="img/pokeball.png"></img>
     </div>
     <div id="pokedex_bd">
-        
+    </div>
+    <div id="poke_more">
     </div>
 </body>
 <script>
@@ -27,10 +28,15 @@
         get_poke()
         poketao.style.display = "none";
     }
-    function get_poke (){
+    let current = 1
+    async function get_poke (){
         let pokedex = document.getElementById("pokedex_bd")
-        for (let id=1; id<150; id++){
-            fetch('https://pokeapi.co/api/v2/pokemon/' + id)
+        let limit = current + 20;
+        if(limit>151)
+            limit=151;
+        for (let id = current; id<=limit; id++){
+
+            await fetch('https://pokeapi.co/api/v2/pokemon/' + id)
             .then(response => response.json())
             .then(function(get_poke){
 
@@ -50,8 +56,13 @@
                         ${get_poketype(get_poke)}
                     </div> 
                 </div>`
+                get_flavor(get_poke)
             })
         }
+        current += 21
+        if(current>151)
+            current=151;
+        more_poke()
     }
     function get_poketype (get_poke) {
 
@@ -72,8 +83,26 @@
         
         return tagsRow.join(['']);
     }
+    function more_poke (){
+        let poke_more = document.getElementById("poke_more")
+        if (current == 151){
+            poke_more.style.display="none"
+        }
+        else{
+            poke_more.innerHTML = 
+            `<div>
+                <button onclick="get_poke()">+poke</button>
+            </div>`
+        }
+    }
+    function get_flavor (get_poke){
+        const poke_flavor = get_poke.species.url
+        fetch(poke_flavor)
+        .then(response => response.json())
+        .then(pokeflavor => console.log(pokeflavor))
 
 
+    }
     
 </script>
 </html>
