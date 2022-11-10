@@ -9,27 +9,20 @@
 </head>
 <body>
     <div id="poketao">
-        <img onclick="get_all()" src="img/pokeball.png"></img>
+        <img onclick="get_poke()" src="img/pokeball.png"></img>
     </div>
     <div id="pokedex_bd">
     </div>
     <div id="poke_more">
     </div>
+    <div id="poke_detail">
+    </div>
 </body>
 <script>
-    function get_all (){
 
-        let poketao = document.getElementById("poketao")
-
-        fetch('https://pokeapi.co/api/v2/pokemon?limit=150')
-        .then(response => response.json())
-        .then(allpokemon => console.log(allpokemon))
-        
-        get_poke()
-        poketao.style.display = "none";
-    }
     let current = 1
     async function get_poke (){
+        poketao.style.display = "none";
         let pokedex = document.getElementById("pokedex_bd")
         let limit = current + 20;
         if(limit>151)
@@ -95,13 +88,32 @@
             </div>`
         }
     }
-    function get_flavor (get_poke){
+    async function get_flavor (get_poke){
         const poke_flavor = get_poke.species.url
-        fetch(poke_flavor)
+        let detail_div = document.getElementById("poke_detail")
+        await fetch(poke_flavor)
         .then(response => response.json())
         .then(function(get_flavor){
             
-            console.log(get_flavor.flavor_text_entries[1].flavor_text)
+            console.log(get_flavor)
+
+            detail_div.innerHTML +=
+            `<div class="poke_card_det">
+                <div class="poke_top">
+                    <h1 class="poke_id">#${get_flavor.id}</h1>
+                    <h1 class="poke_name">${get_flavor.name}</h1>
+                </div>
+                <div class="poke_photo"> 
+                    <img class="poke_view" src="${get_poke.sprites.other["official-artwork"].front_default}"\> 
+                </div>
+                <div class="poke_tipo">
+                    ${get_poketype(get_poke)}
+                </div> 
+                <div class="details">
+                    <p>${get_flavor.habitat.name}</p>
+                    <p>${get_flavor.flavor_text_entries[1].flavor_text}</p>
+                </div>
+            </div>`
         })
 
 
