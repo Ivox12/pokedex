@@ -106,12 +106,15 @@
                 <div class="poke_photo"> 
                     <img class="poke_view" src="${get_poke.sprites.other["official-artwork"].front_default}"\> 
                 </div>
-                <div class="poke_tipo">
-                    ${get_poketype(get_poke)}
-                </div> 
                 <div class="details">
-                    <p>Height: ${get_poke.height}</p><p>Weight: ${get_poke.weight}</p>
+                    <p>Height: ${get_poke.height}</p>
+                    <p>Weight: ${get_poke.weight}</p>
                     <p>${get_flavor.habitat.name}</p>
+                    <div class="poke_tipo">
+                        ${get_poketype(get_poke)}
+                    </div> 
+                </div>
+                <div class="details_flavor">
                     <p>${get_flavor.flavor_text_entries[1].flavor_text}</p>
                 </div>
             </div>`
