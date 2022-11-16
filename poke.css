@@ -95,6 +95,30 @@ body {
     margin-bottom: 5%;
 }
 
+.details {
+    background-color: #fdfdfdc9;
+    text-shadow: 1px 1px 1px #cac8c894;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    width: 60%;
+    margin-top: 5rem;
+}
+
+.poke_card_det > .poke_tipo {
+    margin: auto;
+}
+
+.poke_card_det > .poke_photo {
+    margin: auto;
+    float: right;
+    padding: 2% 2% 2% 2%;
+}
+.poke_card_det > .poke_photo > .poke_view {
+    width: 250px;
+}
+.poke_card_det > .poke_tipo {
+    margin-top: 200px;
+}
 
 /*type config*/
 
