@@ -83,7 +83,44 @@ body {
     position: relative;
     filter: drop-shadow(3px 10px 3px);
 }
+/*----------+POKE BUTTON-----------*/
+.btn_poke {
+    text-align: center;
+    margin-bottom: 2%;
+}
 
+#btn_poke {
+    height: 65px;
+    width: 130px;
+    background-color: #fa6363d0;
+    border: 0px;
+    border-radius: 34px;
+    filter: drop-shadow(5px 5px 5px black);
+    font-family: 'Arial Black', sans-serif;
+    color: whitesmoke;
+    font-size: 20px;
+    text-shadow: 2px 1px 1px #0a0a0afa;
+}
+
+#btn_poke:active {
+    height: 65px;
+    width: 130px;
+    background-color: #fa63639c;
+    border: 0px;
+    border-radius: 34px;
+    filter: drop-shadow(5px 5px 2px black);
+    transform: translateY(3px) translatex(3px);
+}
+
+/*------------FOOTER------------------*/
+
+#rodape {
+    position:absolute;
+    bottom: 0;
+}
+
+
+/*---------DETAILS--------------------*/
 .poke_card_det {
     margin: auto;
     align-content: center;

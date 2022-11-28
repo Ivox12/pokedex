@@ -18,10 +18,14 @@
     <div id="poke_detail">
     </div>
 </body>
+<footer id="rodape">
+    <p>Powered by Ivox</p>
+</footer>
 <script>
 
     let current = 1
     async function get_poke (){
+        rodape.style.display = "none";
         poketao.style.display = "none";
         let pokedex = document.getElementById("pokedex_bd")
         let limit = current + 20;
@@ -55,7 +59,9 @@
         current += 21
         if(current>151)
             current=151;
+        
         more_poke()
+        
     }
     function get_poketype (get_poke) {
 
@@ -83,8 +89,8 @@
         }
         else{
             poke_more.innerHTML = 
-            `<div>
-                <button onclick="get_poke()">+poke</button>
+            `<div class="btn_poke">
+                <button id="btn_poke" onclick="get_poke()">+poke</button>
             </div>`
         }
     }
