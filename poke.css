@@ -133,14 +133,19 @@ body {
     border-radius: 20px;
     margin-bottom: 5%;
     overflow: hidden;
-    max-width: 750px;
+    max-width: 800px;
+    min-width: 650px;
 }
 
 .poke_top_det {
     display: flex;
-    margin: auto;
-    text-align: center;
     justify-content: center;
+    color: whitesmoke;
+    text-shadow:2px 2px 2px black;
+}
+
+.poke_id_det {
+    margin-right: 2%;
 }
 
 .details {
