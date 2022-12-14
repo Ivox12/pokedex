@@ -8,6 +8,9 @@
     <title>pokedex</title>
 </head>
 <body>
+    <div id="dex_txt">
+        <img src="img/txt_dex.png"></img>
+    </div>
     <div id="poketao">
         <img onclick="get_poke()" src="img/pokeball.png"></img>
     </div>
@@ -25,8 +28,9 @@
 
     let current = 1
     async function get_poke (){
-        rodape.style.display = "none";
-        poketao.style.display = "none";
+        dex_txt.innerHTML=``;
+        rodape.innerHTML= ``;
+        poketao.innerHTML = ``;
         let pokedex = document.getElementById("pokedex_bd")
         let limit = current + 20;
         if(limit>151)
@@ -41,7 +45,7 @@
                 console.log(get_poke.name)
 
                 pokedex.innerHTML += 
-                `<div class="poke_card">
+                `<div class="poke_card" data-url="${'https://pokeapi.co/api/v2/pokemon-species/' + id}">
                     <div class="poke_top">
                         <h1 class="poke_id">#${get_poke.id}</h1>
                         <h1 class="poke_name">${get_poke.name}</h1>
@@ -53,8 +57,8 @@
                         ${get_poketype(get_poke)}
                     </div> 
                 </div>`
-                get_flavor(get_poke)
-            })
+                listenerClickPoke()
+            })  
         }
         current += 21
         if(current>151)
@@ -94,40 +98,71 @@
             </div>`
         }
     }
-    async function get_flavor (get_poke){
-        const poke_flavor = get_poke.species.url
+    const listenerClickPoke = () => {
+        const pokes= document.querySelectorAll(".poke_card")
+        pokes.forEach(poke => poke.addEventListener("click", get_flavor))
+    }
+    
+    function get_flavor (event){
+        const target = event.currentTarget 
+        const poke_flavor = target.getAttribute("data-url")
         let detail_div = document.getElementById("poke_detail")
-        await fetch(poke_flavor)
+
+        fetch(poke_flavor)
         .then(response => response.json())
         .then(function(get_flavor){
-            
-            console.log(get_flavor)
 
-            detail_div.innerHTML +=
+            detail_div.style.display="block"
+
+            detail_div.innerHTML =
             `<div class="poke_card_det">
+                <img src="img/UnownX.png" title="Close" id="close" onclick="close_det()"></img>
                 <div class="poke_top_det">
                     <h1 class="poke_id_det">#${get_flavor.id}</h1>
                     <h1 class="poke_name_det">${get_flavor.name}</h1>
                 </div>
-                <div class="poke_photo"> 
-                    <img class="poke_view" src="${get_poke.sprites.other["official-artwork"].front_default}"\> 
+                <div id="poke_photo">  
                 </div>
-                <div class="details">
-                    <p>Height: ${get_poke.height}</p>
-                    <p>Weight: ${get_poke.weight}</p>
-                    <p>${get_flavor.habitat.name}</p>
-                    <div class="poke_tipo">
-                        ${get_poketype(get_poke)}
-                    </div> 
+                <div id="details">
                 </div>
                 <div class="details_flavor">
                     <p>${get_flavor.flavor_text_entries[1].flavor_text}</p>
                 </div>
             </div>`
+            get_poke_det(get_flavor)
         })
-
-
     }
-    
+    async function get_poke_det (get_flavor){
+        let poke_det = document.getElementById("details")
+        let poke_foto = document.getElementById("poke_photo")
+
+        let dex_bd = document.getElementById("pokedex_bd")
+        dex_bd.style.filter="blur(10px)"
+        
+        await fetch('https://pokeapi.co/api/v2/pokemon/' + get_flavor.id)
+        .then(response => response.json())
+        .then(function(get_poke){
+
+            poke_foto.innerHTML = `<img class="poke_view" src="${get_poke.sprites.other["official-artwork"].front_default}"\>`
+
+            poke_det.innerHTML = `
+            <p>Height: ${get_poke.height}</p>
+            <p>Weight: ${get_poke.weight}</p>
+            <p>Habitat: ${get_flavor.habitat.name}</p>
+            <div class="poke_tipo">
+                ${get_poketype(get_poke)}
+            </div>`
+        })
+    }
+
+    function close_det (){
+        let close_window = document.getElementById("poke_detail")
+        let dex_bd = document.getElementById("pokedex_bd")
+
+        dex_bd.style.filter="blur(0px)"
+
+        close_window.innerHTML =``
+    }
+
 </script>
 </html>

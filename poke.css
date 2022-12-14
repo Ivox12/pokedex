@@ -23,12 +23,49 @@ body {
     background-color: #c4aefd9d;
 }
 
+/*-------media-width--------*/
+
+@media (min-width: 540px){
+    .poke_card_det {
+        max-width: 800px;
+        min-width: 650px;
+    }
+    
+    .poke_card_det > #poke_photo > .poke_view {
+        width: 250px;
+    }
+
+    .poke_tipo > div {
+        margin: 10px 10px 10px 10px;
+    }
+}
+
+@media (max-width:539px){
+    .poke_card_det > #poke_photo > .poke_view {
+        width: 160px;
+    }
+}
+
+/*-------first HEADER--------*/
+
+#dex_txt {
+    text-align: center;
+}
+
+#dex_txt > img {
+    width: 30%;
+    max-width: 350px;
+    min-width: 300px;
+}
+
 #poketao {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 3%;
 }
 
 #poketao > img {
+    min-width: 300px;
+    max-width: 350px;
     width: 30%;
     filter: drop-shadow(3px 3px 10px);
 }
@@ -45,6 +82,8 @@ body {
     100%{rotate: 360deg;}
 }
 
+/*------body-dex---------*/
+
 #pokedex_bd {
     display: flex;
     flex-wrap: wrap;
@@ -52,6 +91,7 @@ body {
 }
 
 .poke_card {
+    min-width: 250px;
     text-align: center;
     background: linear-gradient(55deg, #f03b3b9f, #7b45f8ce);
     width: 30%;
@@ -121,11 +161,20 @@ body {
 
 
 /*---------DETAILS--------------------*/
-.poke_card_det {
-    /*position: absolute;
+
+#poke_detail {
+    position: absolute;
+    top: 10%;
     left: 0%;
-    right: 0%;*/
+    right: 0%;
+    z-index: 1;
+}
+
+.poke_card_det {
+    position: fixed;
     margin: auto;
+    right: 0;
+    left: 0;
     background: linear-gradient(55deg, #f03b3b9f, #7b45f8ce);
     height: auto;
     width: 80%;
@@ -133,8 +182,6 @@ body {
     border-radius: 20px;
     margin-bottom: 5%;
     overflow: hidden;
-    max-width: 800px;
-    min-width: 650px;
 }
 
 .poke_top_det {
@@ -148,7 +195,7 @@ body {
     margin-right: 2%;
 }
 
-.details {
+#details {
     background-color: #fdfdfdc9;
     text-shadow: 1px 1px 1px #cac8c894;
     font-family: 'Roboto', sans-serif;
@@ -160,6 +207,7 @@ body {
     padding: 1%;
     border-radius: 34px;
     margin-bottom: 5%;
+    padding-bottom: 10px;
 }
 
 .details_flavor {
@@ -181,21 +229,25 @@ body {
     margin: auto;
 }
 
-.poke_card_det > .poke_photo {
+.poke_card_det > #poke_photo {
     margin-right:5%;
     float: right;
     
 }
-.poke_card_det > .poke_photo > .poke_view {
-    width: 250px;
-}
 
+
+#close {
+    float: right;
+    margin: 2% 2% 0 0;
+    max-width: 50px;
+}
 
 /*type config*/
 
 .poke_tipo {
     display: flex;
     justify-content: center;
+    padding-bottom: 10px;
 }
 
 .poke_tipo > div > p {
@@ -207,12 +259,11 @@ body {
     font-size: 25px;
     margin: auto;
     width: 100px;
-    padding-bottom: 3px;
+    padding-bottom: 2px;
 }
 
 .poke_tipo > div {
     border-radius: 4px;
-    margin: 10px 10px 10px 10px;
     filter: drop-shadow(1px 2px 1px);
 }
 
