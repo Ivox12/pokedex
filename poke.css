@@ -35,6 +35,12 @@ body {
         width: 250px;
     }
 
+    .poke_tipo {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 10px;
+    }
+
     .poke_tipo > div {
         margin: 10px 10px 10px 10px;
     }
@@ -42,7 +48,20 @@ body {
 
 @media (max-width:539px){
     .poke_card_det > #poke_photo > .poke_view {
-        width: 160px;
+        width: 130px;
+        margin-top: 50%;
+    }
+
+    #details > .poke_tipo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-bottom: 10px;
+    }
+
+    .poke_tipo > div {
+        margin: auto;
+        margin-bottom: 5px;
     }
 }
 
