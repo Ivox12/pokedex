@@ -14,9 +14,6 @@ async function get_poke() {
             .then(response => response.json())
             .then(function (get_poke) {
 
-                console.log(get_poke)
-                console.log(get_poke.name)
-
                 pokedex.innerHTML +=
                     `<div class="poke_card" data-url="${'https://pokeapi.co/api/v2/pokemon-species/' + id}">
                     <div class="poke_top">
