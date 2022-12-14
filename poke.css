@@ -50,6 +50,7 @@ body {
     .poke_card_det > #poke_photo > .poke_view {
         width: 130px;
         margin-top: 50%;
+        margin-left: 12%;
     }
 
     #details > .poke_tipo {
